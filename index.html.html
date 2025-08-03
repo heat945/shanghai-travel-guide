@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上海、杭州、蘇州五天四夜旅行手冊</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft JhengHei', 'PingFang TC', 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+
+        .travel-dates {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .nav-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .nav-card p {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+
+        .nav-card .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            border-radius: 2px;
+        }
+
+        .day-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .day-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .day-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .activity {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .activity h4 {
+            color: #e74c3c;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .activity p {
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .attraction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .attraction-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .attraction-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .attraction-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .attraction-info {
+            padding: 20px;
+        }
+
+        .attraction-info h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .attraction-info p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .price-tag {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .food-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .food-card h3 {
+            color: #e74c3c;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .language-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .language-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .language-card h3 {
+            color: #3498db;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .phrase {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .phrase:last-child {
+            border-bottom: none;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .tip-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #27ae60;
+        }
+
+        .tip-card h3 {
+            color: #27ae60;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .tip-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .tip-card li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .tip-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-menu {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .content-section {
+                padding: 20px;
+            }
+        }
+    </style>
+<script type="text/javascript" nonce="a9b432f2136e41838b0f8d4f557" src="//local.adguard.org?ts=1754188673370&amp;type=content-script&amp;dmn=private-us-east-1.manuscdn.com&amp;url=https%3A%2F%2Fprivate-us-east-1.manuscdn.com%2FsessionFile%2FQ4hejHTnXl8EJ1J2xNh6aQ%2Fsandbox%2F0jChIQ47Wqcqt3G870ufi4_1754189978008_na1fn_L2hvbWUvdWJ1bnR1L3RyYXZlbF9ndWlkZS9pbmRleA.html%3FPolicy%3DeyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvUTRoZWpIVG5YbDhFSjFKMnhOaDZhUS9zYW5kYm94LzBqQ2hJUTQ3V3FjcXQzRzg3MHVmaTRfMTc1NDE4OTk3ODAwOF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSeVlYWmxiRjluZFdsa1pTOXBibVJsZUEuaHRtbCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19%26Key-Pair-Id%3DK2HSFNDJXOU9YS%26Signature%3Dpkdpg16cy0-8U~cxdqRJwrXGLMTplOBbJHkxPN-H0XBfaTh8-PhIFSm57s3Bt873JzK7H~JkAjIVUXWlIF7BvvrS2jrJqZ-MBiZEMKC8Nm1sSJqwzhURsA8AB4OVCQNeNpqrfmuwaJ4aFC3vOl-vPV4b8W6Pg-3xroE5hwFDGEwcD4WJnFU3hf-1rynPYLOU4kGa9LbKt3tAucPsTvLU62-numRAKXbfxDU~3PQeXCH0Zhouf8faa~nv0yqNC4SOOUqfyjqGLtjGSgvkcued29mE5S0UdimgL6N1yBt378f0zE3uAv1toy27E~YveXjzFAjaoznANZ9TCAZmDFEI9g__&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script><script type="text/javascript" nonce="a9b432f2136e41838b0f8d4f557" src="//local.adguard.org?ts=1754188673370&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script></head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏮 江南三城旅行手冊 🏮</h1>
+            <p>探索上海、杭州、蘇州的文化瑰寶</p>
+            <div class="travel-dates">
+                📅 2025年8月21日 - 8月25日 (五天四夜)
+            </div>
+        </div>
+
+        <div class="nav-menu">
+            <div class="nav-card" onclick="showSection('itinerary')">
+                <span class="icon">🗓️</span>
+                <h3>行程規劃</h3>
+                <p>詳細的五天四夜旅遊行程安排</p>
+            </div>
+            <div class="nav-card" onclick="showSection('attractions')">
+                <span class="icon">🏛️</span>
+                <h3>景點介紹</h3>
+                <p>歷史古蹟、園林風光與門票資訊</p>
+            </div>
+            <div class="nav-card" onclick="showSection('food')">
+                <span class="icon">🍜</span>
+                <h3>美食推薦</h3>
+                <p>道地小吃與特色餐廳指南</p>
+            </div>
+            <div class="nav-card" onclick="showSection('transport')">
+                <span class="icon">🚄</span>
+                <h3>交通指南</h3>
+                <p>高鐵、地鐵與市內交通攻略</p>
+            </div>
+            <div class="nav-card" onclick="showSection('language')">
+                <span class="icon">💬</span>
+                <h3>語言指南</h3>
+                <p>常用中文與當地用語</p>
+            </div>
+            <div class="nav-card" onclick="showSection('tips')">
+                <span class="icon">💡</span>
+                <h3>旅遊建議</h3>
+                <p>注意事項與實用小貼士</p>
+            </div>
+        </div>
+
+        <!-- 行程規劃 -->
+        <div id="itinerary" class="content-section">
+            <h2 class="section-title">📅 五天四夜行程規劃</h2>
+            
+            <div class="day-card">
+                <div class="day-title">第一天：上海抵達與市區探索 (8月21日 星期四)</div>
+                <div class="activity">
+                    <h4>16:45-19:10：搭乘CI 583航班</h4>
+                    <p><strong>航班：</strong>從高雄小港機場飛往上海浦東國際機場</p>
+                </div>
+                <div class="activity">
+                    <h4>19:10-20:00：抵達上海浦東機場</h4>
+                    <p><strong>流程：</strong>辦理入境手續並領取行李</p>
+                </div>
+                <div class="activity">
+                    <h4>20:00-21:00：機場至市區交通</h4>
+                    <p><strong>交通：</strong>搭乘磁浮列車至龍陽路站(8分鐘) → 地鐵2號線至酒店</p>
+                </div>
+                <div class="activity">
+                    <h4>21:00-22:30：外灘夜景欣賞</h4>
+                    <p><strong>景點：</strong>酒店Check-in後前往外灘，欣賞萬國建築博覽群夜景</p>
+                    <p><strong>門票：</strong>免費</p>
+                </div>
+                <div class="activity">
+                    <h4>22:30-23:30：品嚐上海道地小吃</h4>
+                    <p><strong>推薦：</strong>佳家湯包(黃河路店)、小楊生煎(吳江路店)</p>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-title">第二天：杭州靈隱寺與西湖風光 (8月22日 星期五)</div>
+                <div class="activity">
+                    <h4>07:00-08:30：酒店早餐與前往虹橋站</h4>
+                    <p><strong>交通：</strong>酒店早餐後前往上海虹橋火車站</p>
+                </div>
+                <div class="activity">
+                    <h4>08:30-09:30：搭乘高鐵前往杭州</h4>
+                    <p><strong>交通：</strong>上海虹橋站 → 杭州東站 (車程約45分鐘-1小時20分鐘)</p>
+                </div>
+                <div class="activity">
+                    <h4>09:30-10:30：抵達杭州東站，前往靈隱寺</h4>
+                    <p><strong>交通：</strong>轉乘地鐵或公車前往靈隱寺景區</p>
+                </div>
+                <div class="activity">
+                    <h4>10:30-12:30：探訪靈隱寺</h4>
+                    <p><strong>門票：</strong>飛來峰景區45元 + 靈隱寺30元</p>
+                    <p><strong>開放時間：</strong>07:00-18:15 (17:30停止售票)</p>
+                </div>
+                <div class="activity">
+                    <h4>12:30-13:30：午餐杭州特色美食</h4>
+                    <p><strong>推薦：</strong>知味觀、樓外樓 (西湖醋魚、龍井蝦仁)</p>
+                </div>
+                <div class="activity">
+                    <h4>13:30-17:00：西湖遊覽</h4>
+                    <p><strong>景點：</strong>蘇堤、白堤漫步，可選擇遊船或環湖騎行</p>
+                    <p><strong>門票：</strong>免費 (遊船另計)</p>
+                </div>
+                <div class="activity">
+                    <h4>17:00-19:00：返回上海</h4>
+                    <p><strong>交通：</strong>杭州東站 → 上海虹橋站 (高鐵)</p>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-title">第三天：蘇州園林與水鄉風情 (8月23日 星期六)</div>
+                <div class="activity">
+                    <h4>07:00-08:30：酒店早餐與前往虹橋站</h4>
+                    <p><strong>交通：</strong>酒店早餐後前往上海虹橋火車站</p>
+                </div>
+                <div class="activity">
+                    <h4>08:30-09:30：搭乘高鐵前往蘇州</h4>
+                    <p><strong>交通：</strong>上海虹橋站 → 蘇州站 (車程約30分鐘-1小時)</p>
+                </div>
+                <div class="activity">
+                    <h4>09:30-10:30：抵達蘇州站，前往拙政園</h4>
+                    <p><strong>交通：</strong>轉乘公車或計程車前往拙政園</p>
+                </div>
+                <div class="activity">
+                    <h4>10:30-12:30：遊覽拙政園</h4>
+                    <p><strong>門票：</strong>70-90元 (淡旺季不同)</p>
+                    <p><strong>開放時間：</strong>07:30-17:30</p>
+                </div>
+                <div class="activity">
+                    <h4>12:30-13:30：午餐蘇州特色美食</h4>
+                    <p><strong>推薦：</strong>松鶴樓、得月樓 (松鼠桂魚、蘇式湯麵)</p>
+                </div>
+                <div class="activity">
+                    <h4>13:30-17:00：平江路歷史街區</h4>
+                    <p><strong>景點：</strong>小橋流水、粉牆黛瓦，體驗搖櫓船</p>
+                    <p><strong>門票：</strong>免費 (搖櫓船另計)</p>
+                </div>
+                <div class="activity">
+                    <h4>17:00-19:00：返回上海</h4>
+                    <p><strong>交通：</strong>蘇州站 → 上海虹橋站 (高鐵)</p>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-title">第四天：上海文化探索 (8月24日 星期日)</div>
+                <div class="activity">
+                    <h4>08:00-09:00：酒店早餐與前往豫園</h4>
+                    <p><strong>交通：</strong>酒店早餐後前往豫園與城隍廟</p>
+                </div>
+                <div class="activity">
+                    <h4>09:00-12:00：豫園與城隍廟遊覽</h4>
+                    <p><strong>門票：</strong>豫園30-40元，城隍廟免費</p>
+                    <p><strong>開放時間：</strong>豫園08:45-16:45，城隍廟全天開放</p>
+                </div>
+                <div class="activity">
+                    <h4>12:00-13:00：午餐城隍廟小吃</h4>
+                    <p><strong>推薦：</strong>南翔饅頭店蟹粉小籠包、五香豆等</p>
+                </div>
+                <div class="activity">
+                    <h4>13:00-17:00：田子坊或靜安寺</h4>
+                    <p><strong>田子坊：</strong>藝術街區，免費，全天開放</p>
+                    <p><strong>靜安寺：</strong>古剎禪宗文化，50元，07:30-17:00</p>
+                </div>
+                <div class="activity">
+                    <h4>18:00-19:30：晚餐上海本幫菜</h4>
+                    <p><strong>推薦：</strong>老上海餐廳、上海姥姥家常飯館</p>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-title">第五天：上海自由活動與返程 (8月25日 星期一)</div>
+                <div class="activity">
+                    <h4>08:00-09:00：酒店早餐並辦理退房</h4>
+                    <p><strong>流程：</strong>酒店早餐並辦理退房手續，可將行李寄存在酒店</p>
+                </div>
+                <div class="activity">
+                    <h4>09:00-12:00：自由活動</h4>
+                    <p><strong>建議：</strong>南京路步行街購物、上海城市規劃展示館</p>
+                    <p><strong>注意：</strong>上海博物館週一閉館</p>
+                </div>
+                <div class="activity">
+                    <h4>12:00-13:00：午餐自由選擇</h4>
+                    <p><strong>建議：</strong>再次品嚐喜愛的上海美食，或嘗試尚未體驗的特色餐廳</p>
+                </div>
+                <div class="activity">
+                    <h4>13:00-14:00：返回酒店領取行李</h4>
+                    <p><strong>流程：</strong>返回酒店領取行李，準備前往機場</p>
+                </div>
+                <div class="activity">
+                    <h4>14:00-15:30：前往浦東國際機場</h4>
+                    <p><strong>交通：</strong>提前3-4小時出發，地鐵2號線或磁浮列車</p>
+                </div>
+                <div class="activity">
+                    <h4>15:30-17:50：機場辦理登機手續</h4>
+                    <p><strong>流程：</strong>辦理登機手續、行李托運及出境手續</p>
+                </div>
+                <div class="activity">
+                    <h4>19:50-22:10：返程航班</h4>
+                    <p><strong>航班：</strong>CI 584，19:50上海起飛 → 22:10高雄抵達</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 景點介紹 -->
+        <div id="attractions" class="content-section">
+            <h2 class="section-title">🏛️ 景點介紹與門票資訊</h2>
+            
+            <div class="attraction-grid">
+                <div class="attraction-card">
+                    <img src="images/veM4rJnHvzE5.webp" alt="上海外灘" class="attraction-image">
+                    <div class="attraction-info">
+                        <h3>上海外灘</h3>
+                        <p>上海的標誌性景點，擁有萬國建築博覽群，對岸是陸家嘴的現代高樓大廈，夜晚燈光璀璨，景色迷人。</p>
+                        <span class="price-tag">免費</span>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <img src="images/23ATJydLBSqN.jpg" alt="杭州靈隱寺" class="attraction-image">
+                    <div class="attraction-info">
+                        <h3>杭州靈隱寺</h3>
+                        <p>中國佛教禪宗十大古剎之一，創建於東晉，擁有悠久的歷史和豐富的佛教文化，周邊飛來峰石窟造像更是藝術瑰寶。</p>
+                        <span class="price-tag">飛來峰45元 + 靈隱寺30元</span>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <img src="images/YghyS5v28qTq.jpg" alt="杭州西湖" class="attraction-image">
+                    <div class="attraction-info">
+                        <h3>杭州西湖</h3>
+                        <p>中國著名的風景名勝區，以其秀麗的湖光山色和眾多名勝古蹟而聞名。可選擇遊船、環湖騎行或漫步蘇堤、白堤。</p>
+                        <span class="price-tag">免費 (遊船另計)</span>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <img src="images/BumIGH60kAWL.jpg" alt="蘇州拙政園" class="attraction-image">
+                    <div class="attraction-info">
+                        <h3>蘇州拙政園</h3>
+                        <p>中國四大名園之一，以其精美的園林藝術和深厚的文化底蘊而聞名，是江南古典園林的代表。</p>
+                        <span class="price-tag">70-90元</span>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <img src="images/hqHBKH4KeBte.jpg" alt="蘇州平江路" class="attraction-image">
+                    <div class="attraction-info">
+                        <h3>蘇州平江路</h3>
+                        <p>蘇州保存最完整的古街區之一，小橋流水、粉牆黛瓦，充滿江南水鄉的韻味。可漫步、品茶、逛文創小店。</p>
+                        <span class="price-tag">免費 (搖櫓船另計)</span>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <img src="images/tohlE20MJwcg.jpg" alt="上海豫園" class="attraction-image">
+                    <div class="attraction-info">
+                        <h3>上海豫園</h3>
+                        <p>上海著名的古典園林，小巧精緻，充滿江南園林特色。周邊城隍廟有許多老字號小吃店。</p>
+                        <span class="price-tag">30-40元</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 美食推薦 -->
+        <div id="food" class="content-section">
+            <h2 class="section-title">🍜 美食推薦</h2>
+            
+            <h3 style="color: #e74c3c; margin: 30px 0 20px 0; font-size: 1.5rem;">🏮 上海美食</h3>
+            <div class="food-grid">
+                <div class="food-card">
+                    <h3>小籠包</h3>
+                    <p><strong>特色：</strong>外皮薄如蟬翼、半透明，內餡包裹著豐腴的豬肉與鮮美的湯汁</p>
+                    <p><strong>推薦店家：</strong>佳家湯包(黃河路店)、南翔饅頭店</p>
+                </div>
+                <div class="food-card">
+                    <h3>生煎包</h3>
+                    <p><strong>特色：</strong>底部金黃酥脆，上部鬆軟，內有鮮美肉餡和湯汁</p>
+                    <p><strong>推薦店家：</strong>小楊生煎(吳江路店)</p>
+                </div>
+                <div class="food-card">
+                    <h3>蔥油拌麵</h3>
+                    <p><strong>特色：</strong>麵條爽滑，蔥油香濃，是上海人熟悉的街頭小吃</p>
+                    <p><strong>推薦店家：</strong>阿娘麵館</p>
+                </div>
+                <div class="food-card">
+                    <h3>上海本幫菜</h3>
+                    <p><strong>特色：</strong>紅燒肉、白斬雞、糖醋排骨等經典菜色</p>
+                    <p><strong>推薦店家：</strong>老上海餐廳、上海姥姥家常飯館</p>
+                </div>
+            </div>
+
+            <h3 style="color: #27ae60; margin: 30px 0 20px 0; font-size: 1.5rem;">🌸 杭州美食</h3>
+            <div class="food-grid">
+                <div class="food-card">
+                    <h3>西湖醋魚</h3>
+                    <p><strong>特色：</strong>歷史悠久的名菜，魚肉鮮嫩，酸甜適中</p>
+                    <p><strong>推薦店家：</strong>樓外樓、知味觀</p>
+                </div>
+                <div class="food-card">
+                    <h3>龍井蝦仁</h3>
+                    <p><strong>特色：</strong>杭州特色菜，蝦仁鮮嫩，茶香清雅</p>
+                    <p><strong>推薦店家：</strong>樓外樓</p>
+                </div>
+                <div class="food-card">
+                    <h3>東坡肉</h3>
+                    <p><strong>特色：</strong>肥而不膩，入口即化，是杭州的經典名菜</p>
+                    <p><strong>推薦店家：</strong>知味觀</p>
+                </div>
+                <div class="food-card">
+                    <h3>片兒川</h3>
+                    <p><strong>特色：</strong>杭州傳統麵食，湯清味鮮，配菜豐富</p>
+                    <p><strong>推薦店家：</strong>奎元館</p>
+                </div>
+            </div>
+
+            <h3 style="color: #3498db; margin: 30px 0 20px 0; font-size: 1.5rem;">🏯 蘇州美食</h3>
+            <div class="food-grid">
+                <div class="food-card">
+                    <h3>松鼠桂魚</h3>
+                    <p><strong>特色：</strong>蘇州名菜，魚肉酥脆，造型精美，酸甜可口</p>
+                    <p><strong>推薦店家：</strong>松鶴樓、得月樓</p>
+                </div>
+                <div class="food-card">
+                    <h3>蘇式湯麵</h3>
+                    <p><strong>特色：</strong>湯清味鮮，麵條細膩，配菜精緻</p>
+                    <p><strong>推薦店家：</strong>朱鴻興麵館</p>
+                </div>
+                <div class="food-card">
+                    <h3>太湖三白</h3>
+                    <p><strong>特色：</strong>白魚、白蝦、銀魚，太湖特產，味道鮮美</p>
+                    <p><strong>推薦店家：</strong>得月樓</p>
+                </div>
+                <div class="food-card">
+                    <h3>蘇式糕點</h3>
+                    <p><strong>特色：</strong>精工細作，造型精美，口感層次豐富</p>
+                    <p><strong>推薦店家：</strong>稻香村</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 交通指南 -->
+        <div id="transport" class="content-section">
+            <h2 class="section-title">🚄 交通指南</h2>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h3>🛫 機場交通</h3>
+                    <ul>
+                        <li>浦東機場 → 市區：磁浮列車(8分鐘) + 地鐵2號線</li>
+                        <li>磁浮列車票價：50元(單程)，80元(往返)</li>
+                        <li>地鐵2號線：直達市區各站，約1小時</li>
+                        <li>計程車：約200-300元，1-1.5小時</li>
+                    </ul>
+                </div>
+
+                <div class="tip-card">
+                    <h3>🚄 城際高鐵</h3>
+                    <ul>
+                        <li>上海 ↔ 杭州：45分鐘-1小時20分鐘，二等座139元</li>
+                        <li>上海 ↔ 蘇州：30分鐘-1小時，二等座約25元</li>
+                        <li>杭州 ↔ 蘇州：約36分鐘，二等座約80元</li>
+                        <li>建議提前網上購票或現場取票</li>
+                    </ul>
+                </div>
+
+                <div class="tip-card">
+                    <h3>🚇 上海地鐵</h3>
+                    <ul>
+                        <li>購票：支付寶、微信支付或交通卡</li>
+                        <li>票價：3-9元不等，按距離計費</li>
+                        <li>運營時間：約05:30-23:00</li>
+                        <li>主要線路：1號線(南北)、2號線(東西)、10號線</li>
+                    </ul>
+                </div>
+
+                <div class="tip-card">
+                    <h3>🚌 市內交通</h3>
+                    <ul>
+                        <li>公車：2元起，支持移動支付</li>
+                        <li>計程車：起步價14元，夜間加收費</li>
+                        <li>網約車：滴滴出行、美團打車</li>
+                        <li>共享單車：哈囉單車、美團單車</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 語言指南 -->
+        <div id="language" class="content-section">
+            <h2 class="section-title">💬 語言指南</h2>
+            
+            <div class="language-section">
+                <div class="language-card">
+                    <h3>🗣️ 基本問候</h3>
+                    <div class="phrase">
+                        <span>你好</span>
+                        <span>nǐ hǎo</span>
+                    </div>
+                    <div class="phrase">
+                        <span>謝謝</span>
+                        <span>xiè xiè</span>
+                    </div>
+                    <div class="phrase">
+                        <span>不客氣</span>
+                        <span>bù kè qì</span>
+                    </div>
+                    <div class="phrase">
+                        <span>對不起</span>
+                        <span>duì bù qǐ</span>
+                    </div>
+                    <div class="phrase">
+                        <span>再見</span>
+                        <span>zài jiàn</span>
+                    </div>
+                </div>
+
+                <div class="language-card">
+                    <h3>🚇 交通用語</h3>
+                    <div class="phrase">
+                        <span>火車站</span>
+                        <span>huǒ chē zhàn</span>
+                    </div>
+                    <div class="phrase">
+                        <span>地鐵站</span>
+                        <span>dì tiě zhàn</span>
+                    </div>
+                    <div class="phrase">
+                        <span>機場</span>
+                        <span>jī chǎng</span>
+                    </div>
+                    <div class="phrase">
+                        <span>買票</span>
+                        <span>mǎi piào</span>
+                    </div>
+                    <div class="phrase">
+                        <span>多少錢？</span>
+                        <span>duō shǎo qián?</span>
+                    </div>
+                </div>
+
+                <div class="language-card">
+                    <h3>🍜 餐飲用語</h3>
+                    <div class="phrase">
+                        <span>菜單</span>
+                        <span>cài dān</span>
+                    </div>
+                    <div class="phrase">
+                        <span>點菜</span>
+                        <span>diǎn cài</span>
+                    </div>
+                    <div class="phrase">
+                        <span>買單</span>
+                        <span>mǎi dān</span>
+                    </div>
+                    <div class="phrase">
+                        <span>好吃</span>
+                        <span>hǎo chī</span>
+                    </div>
+                    <div class="phrase">
+                        <span>不辣</span>
+                        <span>bù là</span>
+                    </div>
+                </div>
+
+                <div class="language-card">
+                    <h3>🏨 住宿用語</h3>
+                    <div class="phrase">
+                        <span>酒店</span>
+                        <span>jiǔ diàn</span>
+                    </div>
+                    <div class="phrase">
+                        <span>房間</span>
+                        <span>fáng jiān</span>
+                    </div>
+                    <div class="phrase">
+                        <span>入住</span>
+                        <span>rù zhù</span>
+                    </div>
+                    <div class="phrase">
+                        <span>退房</span>
+                        <span>tuì fáng</span>
+                    </div>
+                    <div class="phrase">
+                        <span>鑰匙</span>
+                        <span>yào shi</span>
+                    </div>
+                </div>
+
+                <div class="language-card">
+                    <h3>🏛️ 景點用語</h3>
+                    <div class="phrase">
+                        <span>門票</span>
+                        <span>mén piào</span>
+                    </div>
+                    <div class="phrase">
+                        <span>開放時間</span>
+                        <span>kāi fàng shí jiān</span>
+                    </div>
+                    <div class="phrase">
+                        <span>導遊</span>
+                        <span>dǎo yóu</span>
+                    </div>
+                    <div class="phrase">
+                        <span>拍照</span>
+                        <span>pāi zhào</span>
+                    </div>
+                    <div class="phrase">
+                        <span>廁所在哪裡？</span>
+                        <span>cè suǒ zài nǎ lǐ?</span>
+                    </div>
+                </div>
+
+                <div class="language-card">
+                    <h3>🛍️ 購物用語</h3>
+                    <div class="phrase">
+                        <span>多少錢？</span>
+                        <span>duō shǎo qián?</span>
+                    </div>
+                    <div class="phrase">
+                        <span>便宜一點</span>
+                        <span>pián yí yī diǎn</span>
+                    </div>
+                    <div class="phrase">
+                        <span>可以刷卡嗎？</span>
+                        <span>kě yǐ shuā kǎ ma?</span>
+                    </div>
+                    <div class="phrase">
+                        <span>發票</span>
+                        <span>fā piào</span>
+                    </div>
+                    <div class="phrase">
+                        <span>退貨</span>
+                        <span>tuì huò</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 旅遊建議 -->
+        <div id="tips" class="content-section">
+            <h2 class="section-title">💡 旅遊建議與注意事項</h2>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h3>💰 預算控制</h3>
+                    <ul>
+                        <li>總預算：台幣12,000元以內(不含住宿)</li>
+                        <li>高鐵票：約台幣600-800元</li>
+                        <li>景點門票：約台幣800-1,000元</li>
+                        <li>餐飲：每日約台幣800-1,200元</li>
+                        <li>市內交通：每日約台幣200-300元</li>
+                        <li>購物紀念品：約台幣2,000-3,000元</li>
+                    </ul>
+                </div>
+
+                <div class="tip-card">
+                    <h3>📱 實用APP</h3>
+                    <ul>
+                        <li>支付寶：移動支付必備</li>
+                        <li>微信支付：廣泛接受的支付方式</li>
+                        <li>12306：高鐵票購買官方APP</li>
+                        <li>滴滴出行：網約車服務</li>
+                        <li>大眾點評：餐廳評價與推薦</li>
+                        <li>百度地圖：導航與路線規劃</li>
+                    </ul>
+                </div>
+
+                <div class="tip-card">
+                    <h3>🎫 購票建議</h3>
+                    <ul>
+                        <li>高鐵票建議提前1-2天購買</li>
+                        <li>景點門票可現場購買或網上預訂</li>
+                        <li>靈隱寺需先買飛來峰景區票</li>
+                        <li>週末景點人潮較多，建議早上前往</li>
+                        <li>部分景點有學生票優惠</li>
+                    </ul>
+                </div>
+
+                <div class="tip-card">
+                    <h3>🌤️ 天氣準備</h3>
+                    <ul>
+                        <li>8月為夏季，氣溫約28-35°C</li>
+                        <li>建議攜帶防曬用品和遮陽帽</li>
+                        <li>可能有午後雷陣雨，備雨具</li>
+                        <li>室內冷氣較強，建議帶薄外套</li>
+                        <li>穿著舒適的步行鞋</li>
+                    </ul>
+                </div>
+
+                <div class="tip-card">
+                    <h3>🏮 文化禮儀</h3>
+                    <ul>
+                        <li>寺廟內保持安靜，不大聲喧嘩</li>
+                        <li>拍照前詢問是否允許</li>
+                        <li>用餐時不浪費食物</li>
+                        <li>排隊時保持秩序</li>
+                        <li>尊重當地風俗習慣</li>
+                    </ul>
+                </div>
+
+                <div class="tip-card">
+                    <h3>🚨 安全提醒</h3>
+                    <ul>
+                        <li>保管好護照和重要證件</li>
+                        <li>避免攜帶大量現金</li>
+                        <li>注意個人物品安全</li>
+                        <li>緊急聯絡電話：110(報警)、120(急救)</li>
+                        <li>購買旅遊保險</li>
+                        <li>告知家人行程安排</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-to-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        function showSection(sectionId) {
+            // 隱藏所有內容區塊
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // 顯示選中的區塊
+            document.getElementById(sectionId).classList.add('active');
+            
+            // 滾動到內容區域
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // 監聽滾動事件，控制返回頂部按鈕顯示
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        // 預設顯示行程規劃
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('itinerary');
+        });
+    </script>
+</body>
+</html>
+
